@@ -1,4 +1,5 @@
 <?php
+require ('./Modules/functies.php');
 $pdo = ConnectDB();
 ?>
 
