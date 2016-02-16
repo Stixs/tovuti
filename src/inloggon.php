@@ -1,21 +1,11 @@
 <?php
-function login($Username, $password, $pdo)
+function login($Gebruikersnaam, $password, $pdo)
 {
-	/*
-	Opdracht 3.03: Inlogsysteem
-	Omschrijving: Maak een prepared statement waarbij je de gegevens van de klant ophaalt
-	*/
 	
-	$parameters = array(':Username'=>$Username);
-	$sth = $pdo->prepare('select * from klanten where Inlognaam = :Username');
+	$parameters = array(':Gebruikersnaam'=>$Gebruikersnaam);
+	$sth = $pdo->prepare('select * from inloggegevens where Gebruikersnaam = :Gebruikersnaam');
 
 	$sth->execute($parameters);
-
-
-	/*
-	Opdracht 3.03: Inlogsysteem
-	Omschrijving: Voorzie de komende regels van commentaar, zoals in de opdracht gevraagd wordt.
-	*/
 
 	if ($sth->rowCount() == 1) 
 	{
@@ -62,10 +52,7 @@ function login($Username, $password, $pdo)
 //het knopje inloggen van het formulier is ingedrukt.
 if(isset($_POST['Inloggen']))
 {
-	/*
-	Opdracht 3.03: Inlogsysteem
-	Omschrijving: Lees de formulier gegevens uit middels de post methode. Roep vervolgens de functie login aan en geef de 3 correcte paramteres mee aan de functie. Middels een if statement kun je vervolgens controleren of de gebruiker is ingelogd en de juiste boodschap weergeven
-	*/
+	
 	$username=$_POST['username'];
 	$password=$_POST['password'];
 
@@ -74,12 +61,10 @@ if(isset($_POST['Inloggen']))
 	if (login($username, $password, $pdo))
 	{
 	echo 'U bent succesvol ingelogd';
-	RedirectNaarPagina();
 	}
 	else
 	{
 	echo 'De gebruikersnaam of het wachtwoord is onjuist';
-	header("Refresh: 2; URL=http://localhost/cinema7/index.php?PaginaNr=5");
 	}
 
 
@@ -87,7 +72,7 @@ if(isset($_POST['Inloggen']))
 else
 {	
 	//er is nog niet op het knopje gedrukt, het formulier wordt weergegeven
-	require('./Forms/InloggenForm.php');
+	require('../Forms/InlogForm.php');
 }
 ?>
 
