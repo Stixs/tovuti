@@ -1,3 +1,7 @@
+<?php
+$pdo = ConnectDB();
+?>
+
 <!DOCTYPE html>
 
 <html>
