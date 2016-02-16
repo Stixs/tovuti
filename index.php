@@ -51,7 +51,7 @@
 							require ('./src/Contact.php');
 							break;
 							case 2:
-							require ('./src/inloggon.php');
+							require ('./src/Inloggen.php');
 							break;
 							default:
 							require ('./');

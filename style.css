@@ -34,9 +34,14 @@ body	{
 	background-color: white;
 	margin-top: 20px;
 	border-radius: 13px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
 }
 #switch	{
-	height: 100%;
+	height: calc(100vh - 80px);
+}
+#switch h1	{
+	text-align: center;
 }
 #logo	{
 	width: 150px;
