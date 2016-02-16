@@ -1,4 +1,5 @@
 <?php
+
 function login($Gebruikersnaam, $password, $pdo)
 {
 	
@@ -72,7 +73,7 @@ if(isset($_POST['Inloggen']))
 else
 {	
 	//er is nog niet op het knopje gedrukt, het formulier wordt weergegeven
-	require('../Forms/InlogForm.php');
+	require('./Forms/InlogForm.php');
 }
 ?>
 
