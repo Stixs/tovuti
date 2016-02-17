@@ -162,7 +162,7 @@ if(isset($_POST['Registreren']))
 							':Woonplaats'=>$Woonplaats,
 							':Email'=>$Email,
 							':Telefoon'=>$Telefoon);
-		$sth = $pdo->prepare('INSERT INTO persoonsgegevens (PersoonsID, Voornaam, Achternaam, Adres, Postcode, Woonplaats, Email, Telefoon) VALUES (PersoonsID, :Voornaam, :Achternaam, :Adres, :Postcode, :Woonplaats, :Email, :Telefoon)');
+		$sth = $pdo->prepare('INSERT INTO persoonsgegevens (PersoonsID, Voornaam, Achternaam, Adres, Postcode, Woonplaats, Email, Telefoon) VALUES (:PersoonsID, :Voornaam, :Achternaam, :Adres, :Postcode, :Woonplaats, :Email, :Telefoon)');
 		$sth->execute($parameters2);				
 		
 		

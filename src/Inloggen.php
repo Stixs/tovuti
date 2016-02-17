@@ -17,17 +17,14 @@ function login($Gebruikersnaam, $password, $pdo)
 		$password = hash('sha512', $password . $row['Salt']);
 
 
-		if ($row['Paswoord'] == $password) 
+		if ($row['Wachtwoord'] == $password) 
 		{
 
 			$user_browser = $_SERVER['HTTP_USER_AGENT'];
 
-			/*
-			Opdracht 3.03: Inlogsysteem
-			Omschrijving: Vul tot slot de sessie met de juiste gegevens
-			*/
-			$_SESSION['user_id'] = $row['KlantID'];
-			$_SESSION['username'] = $row['Inlognaam'];
+			
+			$_SESSION['user_id'] = $row['PersoonsID'];
+			$_SESSION['username'] = $row['Gebruikersnaam'];
 			$_SESSION['level'] = $row['Level'];
 			$_SESSION['login_string'] = hash('sha512',
 					  $password . $user_browser);
@@ -54,12 +51,12 @@ function login($Gebruikersnaam, $password, $pdo)
 if(isset($_POST['Inloggen']))
 {
 	
-	$username=$_POST['username'];
+	$Gebruikersnaam=$_POST['username'];
 	$password=$_POST['password'];
 
 
 	
-	if (login($username, $password, $pdo))
+	if (login($Gebruikersnaam, $password, $pdo))
 	{
 	echo 'U bent succesvol ingelogd';
 	}
