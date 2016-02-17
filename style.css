@@ -28,7 +28,9 @@ body	{
 	height: 60px;
 	background-color: #BA0017;
 }
-
+#menu h1{
+	font-size: 30px;
+}
 #content{
 	height: 100%;
 	background-color: white;
@@ -56,24 +58,25 @@ body	{
 	float: left;
 	width: 15%;
 	height: 100%;
-	background-color: #BA0017;
+	background-color: #A0000D;
 	color: white;
 	text-align: center;
-	box-shadow: inset 0px -3px 3px 3px #580007,
-				0px -2px 10px 2px #A0000D;
 	box-sizing: border-box;
-	padding-top: 5px;
+	padding-top: 8px;
 }
 .inloggen	{
 	float: right;
 	text-align: center;
-	background-color: #BA0017;
+	background-color: #A0000D;
 	height: 100%;
-	box-shadow: inset 0px -3px 3px 3px #580007/*#A0000D*/,
-				0px -2px 10px 2px /*#580007*/ #A0000D;
 	color: white;
 	width: 15%;
 	box-sizing: border-box;
-	padding-top: 5px;
+	padding-top: 8px;
 	cursor: pointer;
+}
+.menu:hover, .inloggen:hover	{
+	background-color: #8D0000;
+	box-shadow: inset 0px -4px 4px 3px #A0000D,
+				inset 0px 4px 4px 3px #A0000D;
 }
