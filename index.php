@@ -7,6 +7,7 @@ $pdo = ConnectDB();
 
 <html>
 	<head>
+		<link href="./docs/icon.ico" type="icon/x-icon" rel="icon">
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<title>FC Iorn</title>
 	</head>
@@ -16,7 +17,7 @@ $pdo = ConnectDB();
 			<div id="menu">
 				<a href="?Page=0">
 					<div id="logo">
-						<h1>[Logo]</h1>
+						<img src="./docs/logo.png" height="100%"/>
 					</div>
 				</a>
 				<a href="?Page=0">
