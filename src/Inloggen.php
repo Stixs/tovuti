@@ -56,7 +56,7 @@ if(isset($_POST['Inloggen']))
 
 
 	
-	if (login($Gebruikersnaam, $password, $pdo))
+	if (login($Gebruikersnaam, $password, $pdo) == true)
 	{
 	echo 'U bent succesvol ingelogd';
 	}
