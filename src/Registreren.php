@@ -5,22 +5,26 @@ $Voornaam = $Achternaam = $Adres = $Postcode = $Woonplaats = $Telefoon = $Email 
 //init error fields
 $FnameErr = $LnameErr = $ZipErr = $CityErr = $TelErr = $MailErr = $UserErr = $PassErr = $RePassErr = NULL;
 
-if(isset($_POST['Registreren']))
-{
-	$CheckOnErrors = false; // hulpvariabele voor het valideren van het formulier
 
 
 	$Voornaam = $_POST["Voornaam"];
 	$Achternaam = $_POST["Achternaam"];
 	$Adres = $_POST["Adres"];
-	$Postcode=$_POST['Postcode'];
-	$Woonplaats=$_POST['Woonplaats'];
-	$Telefoon=$_POST['Telefoon'];
-	$Email=$_POST['Email'];
-	$Gebruikersnaam=$_POST['Gebruikersnaam'];
-	$Wachtwoord=$_POST['Wachtwoord'];
-	$Herhaalwachtwoord=$_POST['Herhaalwachtwoord'];
+	$Postcode = $_POST['Postcode'];
+	$Woonplaats = $_POST['Woonplaats'];
+	$Telefoon = $_POST['Telefoon'];
+	$Email = $_POST['Email'];
+	$Gebruikersnaam = $_POST['Gebruikersnaam'];
+	$Wachtwoord = $_POST['Wachtwoord'];
+	$Herhaalwachtwoord = $_POST['Herhaalwachtwoord'];
 
+if(isset($_POST['Registreren']))
+{
+	$CheckOnErrors = false; // hulpvariabele voor het valideren van het formulier
+
+
+	
+	
 	//BEGIN CONTROLES
 
 /*

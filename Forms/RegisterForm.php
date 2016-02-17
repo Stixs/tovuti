@@ -1,35 +1,62 @@
 	<h1>Registreren</h1>
 	<form name="RegistratieFormulier" action="" method="post">
-		<label for="Voornaam">Voornaam:</label>
-		<input type="text" id="Voornaam" name="Voornaam" value="<?php echo $Voornaam; ?>"/><?php echo $FnameErr; ?>
-		<br />
-		<label for="Achternaam">Achternaam:</label>
-		<input type="text" id="Achternaam" name="Achternaam" value="<?php echo $Achternaam; ?>" /><?php echo $LnameErr; ?>
-		<br />		
-		<label for="Adres">Adres:</label>
-		<input type="text" id="Adres" name="Adres" value="<?php echo $Adres; ?>" />
-		<br />
-		<label for="Postcode">Postcode:</label>
-		<input type="text" id="Postcode" name="Postcode" value="<?php echo $Postcode; ?>" /><?php echo $ZipErr; ?>
-		<br />		
-		<label for="Woonplaats">Woonplaats:</label>
-		<input type="text" id="Woonplaats" name="Woonplaats" value="<?php echo $Woonplaats; ?>" /><?php echo $CityErr;?>
-		<br />
-		<label for="Telefoon">Telefoon:</label>
-		<input type="text" id="Telefoon" name="Telefoon" value="<?php echo $Telefoon; ?>" /><?php echo $TelErr; ?>
-		<br />
-		<label for="Email">E-mail:</label>
-		<input type="text" id="Email" name="Email" value="<?php echo $Email; ?>" /><?php echo $MailErr; ?>
-		<br />
-		<br />
-		<label for="Gebruikersnaam">Gebruikersnaam:</label>
-		<input type="text" id="Gebruikersnaam" name="Gebruikersnaam" value="<?php echo $Gebruikersnaam; ?>" /><?php echo $UserErr; ?>
-		<br />		
-		<label for="Wachtwoord">Wachtwoord:</label>
-		<input type="password" id="Wachtwoord" name="Wachtwoord" /><?php echo $PassErr; ?>
-		<br />		
-		<label for="Herhaalwachtwoord">Herhaal Paswoord:</label>
-		<input type="password" id="Herhaalwachtwoord" name="Herhaalwachtwoord" /><?php echo $RePassErr; ?>
-		<br />		
-		<input type="submit" name="Registreren" value="Registreer!" />
+		<table>
+			<tr>
+				<td><label for="Voornaam">Voornaam:</label></td>
+				<td><input type="text" id="Voornaam" name="Voornaam" value="<?php echo $Voornaam; ?>"/></td><?php echo $FnameErr; ?>
+			</tr>
+			<tr>
+				<td><label for="Achternaam">Achternaam:</label></td>
+				<td><input type="text" id="Achternaam" name="Achternaam" value="<?php echo $Achternaam; ?>" /></td><?php echo $LnameErr; ?>
+			</tr>
+			<tr>
+				<td><label for="Adres">Adres:</label></td>
+				<td><input type="text" id="Adres" name="Adres" value="<?php echo $Adres; ?>" /></td>
+			</tr>
+			<tr>
+				<td><label for="Postcode">Postcode:</label></td>
+				<td><input type="text" id="Postcode" name="Postcode" value="<?php echo $Postcode; ?>" /></td><?php echo $ZipErr; ?>	
+			</tr>
+			<tr>
+				<td><label for="Woonplaats">Woonplaats:</label></td>
+				<td><input type="text" id="Woonplaats" name="Woonplaats" value="<?php echo $Woonplaats; ?>" /></td><?php echo $CityErr;?>
+			</tr>
+			<tr>
+				<td><label for="Telefoon">Telefoon:</label></td>
+				<td><input type="text" id="Telefoon" name="Telefoon" value="<?php echo $Telefoon; ?>" /></td><?php echo $TelErr; ?>
+			</tr>
+			<tr>
+				<td><label for="Email">E-mail:</label></td>
+				<td><input type="text" id="Email" name="Email" value="<?php echo $Email; ?>" /></td><?php echo $MailErr; ?>
+			</tr>
+			<tr>
+				<td><label for="User">User type:</label></td>
+				<td>
+				<select onchange="this.form.submit()">
+					<option value="1">Lid</option>
+					<option value="2">Groepsleider</option>
+					<option value="3">Penningmeester</option>
+					<option value="4">Administrator</option>
+				</select> 
+				</td>
+			</tr>
+			<tr>
+				<td><br></td>
+			</tr>
+			<tr>
+				<td><label for="Gebruikersnaam">Gebruikersnaam:</label></td>
+				<td><input type="text" id="Gebruikersnaam" name="Gebruikersnaam" value="<?php echo $Gebruikersnaam; ?>" /></td><?php echo $UserErr; ?>
+			</tr>
+			<tr>
+				<td><label for="Wachtwoord">Wachtwoord:</label></td>
+				<td><input type="password" id="Wachtwoord" name="Wachtwoord" /></td><?php echo $PassErr; ?>
+			</tr>
+			<tr>
+				<td><label for="Herhaalwachtwoord">Herhaal Paswoord:</label></td>
+				<td><input type="password" id="Herhaalwachtwoord" name="Herhaalwachtwoord" /></td><?php echo $RePassErr; ?>
+			</tr>
+			<tr>	
+				<td><input type="submit" name="Registreren" value="Registreer!" /></td>
+			</tr>
+		<table/>
 	</form>
