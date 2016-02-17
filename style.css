@@ -5,6 +5,8 @@
 
 html{
 	background-image: url("hexagon.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 	font-family: Calibri;
 	height: 100%;
 }
@@ -40,7 +42,8 @@ body	{
 	border-bottom-left-radius: 0px;
 }
 #switch	{
-	height: calc(100vh - 80px);
+	min-height: calc(100vh - 80px);
+	height: 100%;
 }
 #switch h1	{
 	text-align: center;
