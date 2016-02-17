@@ -58,6 +58,9 @@ $pdo = ConnectDB();
 							case 2:
 							require ('./src/Inloggen.php');
 							break;
+							case 3:
+							require ('./src/Registreren.php');
+							break;
 							default:
 							require ('./');
 							break;

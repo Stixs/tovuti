@@ -3,7 +3,7 @@
 $Voornaam = $Achternaam = $Adres = $Postcode = $Woonplaats = $Telefoon = $Email = $Gebruikersnaam = $Wachtwoord = $RetypeWachtwoord = NULL;
 
 //init error fields
-$FnameErr = $LnameErr = $ZipErr = $WoonplaatsErr = $TelErr = $MailErr = $UserErr = $PassErr = $RePassErr = NULL;
+$FnameErr = $LnameErr = $ZipErr = $CityErr = $TelErr = $MailErr = $UserErr = $PassErr = $RePassErr = NULL;
 
 if(isset($_POST['Registreren']))
 {
@@ -19,11 +19,11 @@ if(isset($_POST['Registreren']))
 	$Email=$_POST['Email'];
 	$Gebruikersnaam=$_POST['Gebruikersnaam'];
 	$Wachtwoord=$_POST['Wachtwoord'];
-	$RetypeWachtwoord=$_POST['RetypeWachtwoord'];
+	$Herhaalwachtwoord=$_POST['Herhaalwachtwoord'];
 
 	//BEGIN CONTROLES
 
-
+/*
 	//controleer het voornaam veld
 	if(!is_minlength($Voornaam, 2))
 	{
@@ -130,7 +130,7 @@ if(isset($_POST['Registreren']))
 	$RePassErr = 'Wachtwoord is verplicht!';
 	$CheckOnErrors = true;
 	}
-
+*/
 	if($CheckOnErrors == true) //aanvullen
 	{
 	require('./Forms/RegistrerenForm.php');
@@ -147,32 +147,31 @@ if(isset($_POST['Registreren']))
 
 		
 		$parameters = array(':Gebruikersnaam'=>$Gebruikersnaam,
-							':Paswoord'=>$Wachtwoord,
+							':Wachtwoord'=>$Wachtwoord,
 							':Salt'=>$Salt,
-							':Level'=>$Level);
-		$sth = $pdo->prepare('INSERT INTO klanten (Gebruikersnaam, Wachtwoord, Salt, Level) VALUES (:Gebruikersnaam, :Wachtwoord, :Salt, :Level)');
+							':Level'=>1);
+		$sth = $pdo->prepare('INSERT INTO inloggegevens (Gebruikersnaam, Wachtwoord, Salt, Level) VALUES (:Gebruikersnaam, :Wachtwoord, :Salt, :Level)');
 		$sth->execute($parameters);
 		$LastID = $pdo->lastInsertId();
 		
-		$parameters = array(':PersoonsID'=>$LastID,
+		$parameters2 = array(':PersoonsID'=>$LastID,
 							':Voornaam'=>$Voornaam,
 							':Achternaam'=>$Achternaam,
 							':Adres'=>$Adres,
 							':Postcode'=>$Postcode,
-							':Plaats'=>$Woonplaats,
+							':Woonplaats'=>$Woonplaats,
 							':Email'=>$Email,
 							':Telefoon'=>$Telefoon);
-		$sth = $pdo->prepare('INSERT INTO klanten (PersoonsID, Voornaam, Achternaam, Adres, Postcode, Plaats, Email, Telefoon) VALUES (:Voornaam, :Achternaam, :Adres, :Postcode, :Plaats, :Email, :Telefoon)');
-		$sth->execute($parameters);				
+		$sth = $pdo->prepare('INSERT INTO persoonsgegevens (PersoonsID, Voornaam, Achternaam, Adres, Postcode, Woonplaats, Email, Telefoon) VALUES (PersoonsID, :Voornaam, :Achternaam, :Adres, :Postcode, :Woonplaats, :Email, :Telefoon)');
+		$sth->execute($parameters2);				
 		
 		
 		echo 'U heeft zich succesvol geregistreerd en kunt vanaf nu inloggen op de website';
-		RedirectNaarPagina();
 	}
 }
 else
 {
-	require('./Forms/RegistrerenForm.php');
+	require('./Forms/RegisterForm.php');
 }
 ?>
 
