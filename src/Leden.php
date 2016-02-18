@@ -1,5 +1,6 @@
-<div class="col-10 table">
-	<br />
+<div class="row ledentabel">
+<div class="col-1 "></div>
+<div class="col-10">
 	<table class="col-12">
 		<tr>
 			<td class="titel" colspan="4"><h1>Groep 1A</h1></td>
@@ -19,4 +20,5 @@
 			}
 		?>
 	</table>
+</div>
 </div>
