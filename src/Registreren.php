@@ -182,6 +182,9 @@ if(isset($_POST['Registreren']))
 		$sth = $pdo->prepare('INSERT INTO persoonsgegevens (PersoonsID, Voornaam, Achternaam, Adres, Postcode, Woonplaats, Email, Telefoon) VALUES (:PersoonsID, :Voornaam, :Achternaam, :Adres, :Postcode, :Woonplaats, :Email, :Telefoon)');
 		$sth->execute($parameters2);				
 		
+		$parameters3 = array();
+		$sth = $pdo->prepare('INSERT INTO leden (PersoonsID, Leeftijd) VALUES (:PersoonsID, :Leeftijd)');
+		$sth->execute($parameters3);
 		
 		echo 'U heeft zich succesvol geregistreerd en kunt vanaf nu inloggen op de website';
 	}

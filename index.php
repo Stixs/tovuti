@@ -65,6 +65,9 @@ $pdo = ConnectDB();
 							case 4:
 							require	('./src/Leden.php');
 							break;
+							case 5:
+							require ('./src/AdminLedenWijzigen.php');
+							break;
 							default:
 							require ('./');
 							break;
