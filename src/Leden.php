@@ -1,4 +1,5 @@
 <div class="col-10 table">
+	<br />
 	<table class="col-12">
 		<tr>
 			<td class="titel" colspan="4"><h1>Groep 1A</h1></td>
