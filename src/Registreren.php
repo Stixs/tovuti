@@ -5,7 +5,6 @@ $Voornaam = $Achternaam = $Adres = $Postcode = $Woonplaats = $Telefoon = $Email 
 //init error fields
 $FnameErr = $LnameErr = $ZipErr = $CityErr = $TelErr = $MailErr = $UserErr = $PassErr = $RePassErr = $LeefErr = NULL;
 
-var_dump($_POST);
 if(isset($_POST['type'])){
 	$Type = $_POST["type"];
 	$Voornaam = $_POST["Voornaam"];
