@@ -1,9 +1,9 @@
 <?php
 //init fields
-$Voornaam = $Achternaam = $Adres = $Postcode = $Woonplaats = $Telefoon = $Email = $Gebruikersnaam = $Wachtwoord = $RetypeWachtwoord = $Type = NULL;
+$Voornaam = $Achternaam = $Adres = $Postcode = $Woonplaats = $Telefoon = $Email = $Gebruikersnaam = $Wachtwoord = $RetypeWachtwoord = $Type = $Leeftijd = $Groep = NULL;
 
 //init error fields
-$FnameErr = $LnameErr = $ZipErr = $CityErr = $TelErr = $MailErr = $UserErr = $PassErr = $RePassErr = NULL;
+$FnameErr = $LnameErr = $ZipErr = $CityErr = $TelErr = $MailErr = $UserErr = $PassErr = $RePassErr = $LeefErr = NULL;
 
 var_dump($_POST);
 if(isset($_POST['type'])){
@@ -18,6 +18,8 @@ if(isset($_POST['type'])){
 	$Gebruikersnaam = $_POST['Gebruikersnaam'];
 	$Wachtwoord = $_POST['Wachtwoord'];
 	$Herhaalwachtwoord = $_POST['Herhaalwachtwoord'];
+	$Leeftijd = @$_POST['Leeftijd'];
+	$Groep = @$_POST['Groep'];
 }
 if(isset($_POST['Registreren']))
 {
@@ -32,6 +34,8 @@ if(isset($_POST['Registreren']))
 	$Gebruikersnaam = $_POST['Gebruikersnaam'];
 	$Wachtwoord = $_POST['Wachtwoord'];
 	$Herhaalwachtwoord = $_POST['Herhaalwachtwoord'];
+	$Leeftijd = @$_POST['Leeftijd'];
+	$Groep = @$_POST['Groep'];
 	
 	$CheckOnErrors = false; // hulpvariabele voor het valideren van het formulier
 
@@ -182,8 +186,12 @@ if(isset($_POST['Registreren']))
 		$sth = $pdo->prepare('INSERT INTO persoonsgegevens (PersoonsID, Voornaam, Achternaam, Adres, Postcode, Woonplaats, Email, Telefoon) VALUES (:PersoonsID, :Voornaam, :Achternaam, :Adres, :Postcode, :Woonplaats, :Email, :Telefoon)');
 		$sth->execute($parameters2);				
 		
-		$parameters3 = array();
-		$sth = $pdo->prepare('INSERT INTO leden (PersoonsID, Leeftijd) VALUES (:PersoonsID, :Leeftijd)');
+		if($Type == 1){$tabel = 'leden';}
+		elseif($Type == 2){$tabel = 'groepsleiders';}
+		$parameters3 = array(':PersoonsID'=>$LastID,
+							 ':Leeftijd'=>$Leeftijd,
+							 ':GroepID'=>$Groep);
+		$sth = $pdo->prepare('INSERT INTO '.$tabel.' (PersoonsID, Leeftijd, GroepID) VALUES (:PersoonsID, :Leeftijd, :GroepID)');
 		$sth->execute($parameters3);
 		
 		echo 'U heeft zich succesvol geregistreerd en kunt vanaf nu inloggen op de website';

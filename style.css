@@ -134,3 +134,7 @@ body	{
 .ledentabel table	{
 	border-collapse: collapse;
 }
+
+.registreren table{
+	float: left;
+}
