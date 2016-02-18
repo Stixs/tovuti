@@ -7,5 +7,10 @@
 		<tr>
 			<th class="naam">Naam</th><th class="achternaam">Achternaam</th><th class="plaats">Woonplaats</th><th class="email">Email</th>
 		</tr>
+		<?php
+			
+			
+			while()
+		?>
 	</table>
 </div>
