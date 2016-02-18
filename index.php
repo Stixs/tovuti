@@ -37,7 +37,7 @@ $pdo = ConnectDB();
 				</a>
 			</div>
 			<div id="content">
-				<div id="switch">
+				
 					<?php
 						if(isset($_GET['Page']))
 						{
@@ -70,7 +70,7 @@ $pdo = ConnectDB();
 							break;
 						}
 					?>
-				</div>
+				
 			</div>
 		</div>
 	</div>

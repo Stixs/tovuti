@@ -47,6 +47,7 @@ body	{
 	font-size: 30px;
 }
 #content{
+	min-height: calc(100vh - 80px);
 	height: 100%;
 	background-color: white;
 	margin-top: 20px;
@@ -54,10 +55,7 @@ body	{
 	border-bottom-right-radius: 0px;
 	border-bottom-left-radius: 0px;
 }
-#switch	{
-	min-height: calc(100vh - 80px);
-	height: 100%;
-}
+
 #switch h1	{
 	text-align: center;
 }
