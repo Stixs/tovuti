@@ -108,7 +108,7 @@ body	{
 td, th	{
 	border: 1px solid;
 }
-table	{
+.table table	{
 	border-collapse: collapse;
 }
 .table	{
