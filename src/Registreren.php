@@ -1,12 +1,13 @@
 <?php
 //init fields
-$Voornaam = $Achternaam = $Adres = $Postcode = $Woonplaats = $Telefoon = $Email = $Gebruikersnaam = $Wachtwoord = $RetypeWachtwoord = NULL;
+$Voornaam = $Achternaam = $Adres = $Postcode = $Woonplaats = $Telefoon = $Email = $Gebruikersnaam = $Wachtwoord = $RetypeWachtwoord = $Type = NULL;
 
 //init error fields
 $FnameErr = $LnameErr = $ZipErr = $CityErr = $TelErr = $MailErr = $UserErr = $PassErr = $RePassErr = NULL;
 
-
-
+var_dump($_POST);
+if(isset($_POST['type'])){
+	$Type = $_POST["type"];
 	$Voornaam = $_POST["Voornaam"];
 	$Achternaam = $_POST["Achternaam"];
 	$Adres = $_POST["Adres"];
@@ -17,9 +18,21 @@ $FnameErr = $LnameErr = $ZipErr = $CityErr = $TelErr = $MailErr = $UserErr = $Pa
 	$Gebruikersnaam = $_POST['Gebruikersnaam'];
 	$Wachtwoord = $_POST['Wachtwoord'];
 	$Herhaalwachtwoord = $_POST['Herhaalwachtwoord'];
-
+}
 if(isset($_POST['Registreren']))
 {
+	$Type = $_POST["type"];
+	$Voornaam = $_POST["Voornaam"];
+	$Achternaam = $_POST["Achternaam"];
+	$Adres = $_POST["Adres"];
+	$Postcode = $_POST['Postcode'];
+	$Woonplaats = $_POST['Woonplaats'];
+	$Telefoon = $_POST['Telefoon'];
+	$Email = $_POST['Email'];
+	$Gebruikersnaam = $_POST['Gebruikersnaam'];
+	$Wachtwoord = $_POST['Wachtwoord'];
+	$Herhaalwachtwoord = $_POST['Herhaalwachtwoord'];
+	
 	$CheckOnErrors = false; // hulpvariabele voor het valideren van het formulier
 
 

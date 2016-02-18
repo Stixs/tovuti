@@ -32,11 +32,11 @@
 			<tr>
 				<td><label for="User">User type:</label></td>
 				<td>
-				<select onchange="this.form.submit()">
-					<option value="1">Lid</option>
-					<option value="2">Groepsleider</option>
-					<option value="3">Penningmeester</option>
-					<option value="4">Administrator</option>
+				<select name="type" onchange="this.form.submit()">
+					<option value="1"<?php if($Type == 1){echo ' selected';} ?>>Lid</option>
+					<option value="2"<?php if($Type == 2){echo ' selected';} ?>>Groepsleider</option>
+					<option value="3"<?php if($Type == 3){echo ' selected';} ?>>Penningmeester</option>
+					<option value="4"<?php if($Type == 4){echo ' selected';} ?>>Administrator</option>
 				</select> 
 				</td>
 			</tr>
