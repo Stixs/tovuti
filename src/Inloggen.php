@@ -24,10 +24,9 @@ function login($Gebruikersnaam, $password, $pdo)
 
 			
 			$_SESSION['user_id'] = $row['PersoonsID'];
-			$_SESSION['username'] = $row['Gebruikersnaam'];
+			$_SESSION['Gebruikersnaam'] = $row['Gebruikersnaam'];
 			$_SESSION['level'] = $row['Level'];
-			$_SESSION['login_string'] = hash('sha512',
-					  $password . $user_browser);
+			$_SESSION['login_string'] = hash('sha512',  $password . $user_browser);
 			
 			// Login successful.
 			return true;

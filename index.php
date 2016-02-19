@@ -1,6 +1,9 @@
 <?php
+session_start();
 require ('./Modules/functies.php');
 $pdo = ConnectDB();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -14,28 +17,7 @@ $pdo = ConnectDB();
 	<body>
 	<div id="site">
 		<div id="page">
-			<div id="menu">
-				<a href="?Page=0">
-					<div id="logo">
-						<img src="./docs/logo.png" height="100%"/>
-					</div>
-				</a>
-				<a href="?Page=0">
-					<div class="menu">
-						<h1>Home</h1>
-					</div>
-				</a>
-				<a href="?Page=1">
-					<div class="menu">
-						<h1>Contact</h1>
-					</div>
-				</a>
-				<a href="?Page=2">
-					<div class="inloggen">
-						<h1>Inloggen</h1>
-					</div>
-				</a>
-			</div>
+			<?php require ('./Modules/Menu.php'); ?>
 			<div id="content">
 				
 					<?php
@@ -67,6 +49,9 @@ $pdo = ConnectDB();
 							break;
 							case 5:
 							require ('./src/AdminLedenWijzigen.php');
+							break;
+							case 99:
+							require ('./src/Uitloggen.php');
 							break;
 							default:
 							require ('./');

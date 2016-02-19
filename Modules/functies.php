@@ -10,11 +10,11 @@ function ConnectDB()
 function LoginCheck($pdo) 
 {
     // Controleren of Sessie variabelen bestaan
-    if (isset($_SESSION['user_id'], $_SESSION['username'], $_SESSION['login_string'])) 
+    if (isset($_SESSION['user_id'], $_SESSION['Gebruikersnaam'], $_SESSION['login_string'])) 
 	{
-        $KlantID = $_SESSION['user_id'];
+        $PersoonsID = $_SESSION['user_id'];
         $Login_String = $_SESSION['login_string'];
-        $Username = $_SESSION['username'];
+        $Gebruikersnaam = $_SESSION['Gebruikersnaam'];
  
         // Get the user-agent string of the user.
         $user_browser = $_SERVER['HTTP_USER_AGENT'];
@@ -31,7 +31,7 @@ function LoginCheck($pdo)
 			$row = $sth->fetch();
 
 			//check maken
-		    $Login_Check = hash('sha512', $row['Paswoord'] . $user_browser);
+		    $Login_Check = hash('sha512', $row['Wachtwoord'] . $user_browser);
  
 				//controleren of check overeenkomt met sessie
                 if ($Login_Check == $Login_String)
