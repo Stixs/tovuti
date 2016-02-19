@@ -149,9 +149,13 @@ body	{
 }
 .tableALW table	{
 	border-collapse: collapse;
+	margin-top: 20px;
 }
 .tableALW	{
 	margin-top: 20px;
+}
+.tableALW th, .tableALW td	{
+	border-bottom: 1px solid;
 }
 .registreren table{
 	float: left;

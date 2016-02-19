@@ -1,25 +1,41 @@
 <div class="col-0_5"></div>
 <div class="col-11 tableALW">
-	<table class="col-12">
-		<tr>
-			<th colspan="10" style="text-align: center;"><h1>Leden Wijzigen</h1></th>
-		</tr>
-		<tr>
-			<th>Achternaam</th><th>Voornaam</th><th>Adres</th><th>Woonplaats</th><th>Leeftijd</th><th>Groep</th><th>Email</th><th>Telefoon</th><th>Userlevel</th><th>Wijzigen</th>
-		</tr>
-		<?php
-			$parameters = array(':PersoonsID'=>'PersoonsID',
-								':GroepID'=>'GroepID');
-			$sth = $pdo->prepare('SELECT * FROM persoonsgegevens p, groepsleiders gl, leden l, groep g WHERE gl.PersoonsID = p.:PersoonsID OR l.PersoonsID = p.:PersoonsID OR l.GroepID = g.:GroepID OR gl.GroepID = g.:GroepID');
-			$sth->execute($parameters);
+	<?php
+		$sth = $pdo->prepare('SELECT * FROM groep');
+		$sth->execute();
+		
+		while($row = $sth->fetch())
+		{
+			echo '<table class="col-12">';
+			echo '<tr>';
+			echo '<th colspan="10">'.$row['Groepnaam'].'</th>';
+			echo '</tr>';
+			$groep = $row['GroepID'];
+			echo '<th>Achternaam</th><th>Voornaam</th><th>Adres</th><th>Woonplaats</th><th>Leeftijd</th><th>Groep</th><th>Email</th><th>Telefoon</th><th>Wijzigen</th>';
 			
-			while($row = $sth->fetch())
+			$parameters = array(':GroepID'=>$groep);
+			$sth1 = $pdo->prepare('SELECT * FROM persoonsgegevens p, groepsleiders gl, groep g WHERE gl.PersoonsID = p.PersoonsID AND gl.GroepID = g.GroepID AND gl.GroepID = :GroepID');
+			$sth1->execute($parameters);
+			$row1 = $sth1->fetch();
+			if(isset($row1['PersoonsID']))
 			{
 				echo '<tr>';
-				echo '<td>'.$row['Achternaam'].'</td><td>'.$row['Voornaam'].'</td><td>'.$row['Adres'].'</td><td>'.$row['Woonplaats'].'</td><td>'.$row['Leeftijd'].'</td><td>'.$row['Groep'].'</td><td>'.$row['Email'].'</td><td>'.$row['Telefoon'].'</td><td>'.$row['Userlevel'].'<td><a href="">Wijzigen</td>';
+				echo '<td>'.$row1['Achternaam'].'</td><td>'.$row1['Voornaam'].'</td><td>'.$row1['Adres'].'</td><td>'.$row1['Woonplaats'].'</td><td>'.$row1['Leeftijd'].'</td><td>'.$row1['Groepnaam'].'</td><td>'.$row1['Email'].'</td><td>'.$row1['Telefoon'].'</td><td><a href="">Wijzigen</a></td>';
 				echo '</tr>';
 			}
-			var_dump($row['Achternaam']);
-		?>
-	</table>
+			
+			$parameters = array(':GroepID'=>$groep);
+			$sth2 = $pdo->prepare('SELECT * FROM persoonsgegevens p, leden l, groep g WHERE l.PersoonsID = p.PersoonsID AND l.GroepID = :GroepID AND l.GroepID = g.GroepID');
+			$sth2->execute($parameters);
+			
+			while($row2 = $sth2->fetch())
+			{
+				echo '<tr>';
+				echo '<td>'.$row2['Achternaam'].'</td><td>'.$row2['Voornaam'].'</td><td>'.$row2['Adres'].'</td><td>'.$row2['Woonplaats'].'</td><td>'.$row2['Leeftijd'].'</td><td>'.$row2['Groepnaam'].'</td><td>'.$row2['Email'].'</td><td>'.$row2['Telefoon'].'</td><td><a href="">Wijzigen</a></td>';
+				echo '</tr>';
+			}
+			
+			echo '</table>';
+		}
+	?>
 </div>
