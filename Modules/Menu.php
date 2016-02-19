@@ -4,12 +4,12 @@
 			<img src="./docs/logo.png" height="100%"/>
 		</div>
 	</a>
-	<a href="?Page=0">
+	<a href="?Page=1">
 		<div class="menu">
 			<h1>Home</h1>
 		</div>
 	</a>
-	<a href="?Page=1">
+	<a href="?Page=2">
 		<div class="menu">
 			<h1>Contact</h1>
 		</div>
@@ -24,7 +24,7 @@
 	
 	<?php } else { ?>
 	
-	<a href="?Page=2">
+	<a href="?Page=0">
 		<div class="inloggen">
 			<h1>Inloggen</h1>
 		</div>
