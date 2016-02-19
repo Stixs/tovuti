@@ -6,13 +6,9 @@
 table, th, td, tr{
 	border: 0px
 }
-<<<<<<< HEAD
-
-=======
 .col-0_5	{ width: 4.165%;
 			  float: left;
 			  min-height: 1px;}
->>>>>>> origin/master
 .col-1	{ width: 8.33%;
 		  float: left;
 		  min-height: 1px}
