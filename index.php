@@ -27,28 +27,28 @@ $pdo = ConnectDB();
 						}
 						else
 						{
-							$page = 0;
+							$page = 1;
 						}
 						
 						switch($page)
 						{
 							case 0:
-							require ('./src/Home.php');
-							break;
-							case 1:
-							require ('./src/Contact.php');
-							break;
-							case 2:
 							require ('./src/Inloggen.php');
 							break;
-							case 3:
-							require ('./src/Registreren.php');
+							case 1:
+							require ('./src/Home.php');
 							break;
-							case 4:
-							require	('./src/Leden.php');
+							case 2:
+							require ('./src/Contact.php');
 							break;
 							case 5:
+							require	('./src/Leden.php');
+							break;
+							case 8:
 							require ('./src/AdminLedenWijzigen.php');
+							break;
+							case 13:
+							require ('./src/Registreren.php');
 							break;
 							case 99:
 							require ('./src/Uitloggen.php');

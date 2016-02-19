@@ -204,9 +204,7 @@ select{
 	height: 28px;
 	width: 202px;
 	border-radius: 5px;
-<<<<<<< HEAD
 	border: 1px solid blue;
-=======
 	border: 1px solid grey;
 	font-size: 17px;
 	color: #444;
@@ -216,5 +214,4 @@ select:hover{
 	-webkit-box-shadow:inset 0px 0px 0px 1px #3399ff;
     -moz-box-shadow:inset 0px 0px 0px 1px #3399ff;
     box-shadow:inset 0px 0px 0px 1px #3399ff;
->>>>>>> origin/master
 }
