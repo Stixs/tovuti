@@ -74,17 +74,55 @@ body	{
 }
 
 #menu{
-	height: 60px;
+	height: 50px;
 	background-color: #BA0017;
 }
 #menu h1{
-	font-size: 30px;
+	font-size: 27px;
 }
+
+.menu	{
+	cursor: pointer;
+	float: left;
+	width: 15%;
+	height: 100%;
+	background-color: #A0000D;
+	color: white;
+	text-align: center;
+	box-sizing: border-box;
+	padding-top: 8px;
+}
+
+.menu:hover, .inloggen:hover	{
+	background-color: #8D0000;
+	box-shadow: inset 0px -4px 4px 3px #A0000D,
+				inset 0px 4px 4px 3px #A0000D;
+}
+
+#secondmenu{
+	margin-left: 30px;
+	height: 30px;
+	
+}
+
+.a_menu{
+	width: 120px;
+	display: inline-block;
+	font-size: 9px;
+	color: white;
+	text-decoration: none;
+	padding: 3px 20px 5px 20px;
+	text-align: center;
+}
+
+.a_menu:hover{
+	background-color: #171717;
+}
+
 #content{
 	min-height: calc(100vh - 80px);
 	height: 100%;
 	background-color: white;
-	margin-top: 20px;
 	border-radius: 13px;
 	border-bottom-right-radius: 0px;
 	border-bottom-left-radius: 0px;
@@ -101,17 +139,7 @@ body	{
 	box-sizing: border-box;
 	padding-top: 5px;
 }
-.menu	{
-	cursor: pointer;
-	float: left;
-	width: 15%;
-	height: 100%;
-	background-color: #A0000D;
-	color: white;
-	text-align: center;
-	box-sizing: border-box;
-	padding-top: 8px;
-}
+
 .inloggen	{
 	float: right;
 	text-align: center;
@@ -123,11 +151,7 @@ body	{
 	padding-top: 8px;
 	cursor: pointer;
 }
-.menu:hover, .inloggen:hover	{
-	background-color: #8D0000;
-	box-shadow: inset 0px -4px 4px 3px #A0000D,
-				inset 0px 4px 4px 3px #A0000D;
-}
+
 #logoHome	{
 	margin-left: auto;
 	margin-right: auto;
@@ -162,15 +186,35 @@ body	{
 	font-weight: bold;
 }
 
-input[type=text], input[type=password]{
+input[type=text], input[type=password], input[type=number]{
 	height: 25px;
 	width: 200px;
 	border-radius: 5px;
 	border: 1px solid grey;
+	font-size: 17px;
+	color: #444;
 }
-input[type=text]:hover, input[type=password]:hover{
-	height: 25px;
-	width: 200px;
+input[type=text]:hover, input[type=password]:hover, input[type=number]:hover{
+	-webkit-box-shadow:inset 0px 0px 0px 1px #3399ff;
+    -moz-box-shadow:inset 0px 0px 0px 1px #3399ff;
+    box-shadow:inset 0px 0px 0px 1px #3399ff;
+}
+
+select{
+	height: 28px;
+	width: 202px;
 	border-radius: 5px;
+<<<<<<< HEAD
 	border: 1px solid blue;
+=======
+	border: 1px solid grey;
+	font-size: 17px;
+	color: #444;
+}
+
+select:hover{
+	-webkit-box-shadow:inset 0px 0px 0px 1px #3399ff;
+    -moz-box-shadow:inset 0px 0px 0px 1px #3399ff;
+    box-shadow:inset 0px 0px 0px 1px #3399ff;
+>>>>>>> origin/master
 }
