@@ -57,7 +57,7 @@ $pdo = ConnectDB();
 							require ('./src/Uitloggen.php');
 							break;
 							default:
-							require ('./');
+							require ('./src/Home.php');
 							break;
 						}
 					?>
