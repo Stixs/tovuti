@@ -37,10 +37,10 @@
 					<td>
 					<select name="type" onchange="this.form.submit()">
 						<option value="0">Kies een usertype</option>
-						<option value="1"<?php if($Type == 1){echo ' selected';} ?>>Lid</option>
-						<option value="2"<?php if($Type == 2){echo ' selected';} ?>>Groepsleider</option>
-						<option value="3"<?php if($Type == 3){echo ' selected';} ?>>Penningmeester</option>
-						<option value="4"<?php if($Type == 4){echo ' selected';} ?>>Administrator</option>
+						<option value="1"<?php if($Level == 1){echo ' selected';} ?>>Lid</option>
+						<option value="2"<?php if($Level == 2){echo ' selected';} ?>>Groepsleider</option>
+						<option value="3"<?php if($Level == 3){echo ' selected';} ?>>Penningmeester</option>
+						<option value="4"<?php if($Level == 4){echo ' selected';} ?>>Administrator</option>
 					</select> 
 					</td>
 				</tr>
@@ -63,7 +63,7 @@
 					<td><input type="submit" name="Registreren" value="Registreer!" /></td>
 				</tr>
 			<table/>
-			<?php if($Type == 1 || $Type == 2){ ?>
+			<?php if($Level == 1 || $Level == 2){ ?>
 			<table>
 				<tr>
 					<td><label for="Leeftijd">Leeftijd:</label></td>

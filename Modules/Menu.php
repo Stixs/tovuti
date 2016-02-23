@@ -1,5 +1,5 @@
 <div id="menu">
-	<a href="?Page=0">
+	<a href="?Page=1">
 		<div id="logo">
 			<img src="./docs/logo.png" height="100%"/>
 		</div>

@@ -44,8 +44,11 @@ $pdo = ConnectDB();
 							case 5:
 							require	('./src/Leden.php');
 							break;
-							case 8:
+							case 10:
 							require ('./src/AdminLedenWijzigen.php');
+							break;
+							case 12:
+							require ('./src/Evenementen.php');
 							break;
 							case 13:
 							require ('./src/Registreren.php');
