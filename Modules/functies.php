@@ -44,4 +44,50 @@ function LoginCheck($pdo)
           return false;
 }
 
+function is_email($Invoer)
+  {
+	 return (bool)(preg_match("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$^",$Invoer));
+   }
+
+function is_minlength($Invoer, $MinLengte)
+{
+	return (strlen($Invoer) >= (int)$MinLengte);
+}
+
+function is_NL_PostalCode($Invoer)
+{
+return (bool)(preg_match('#^[1-9][0-9]{3}\h*[A-Z]{2}$#i', $Invoer));
+}
+
+function is_NL_Telnr($Invoer)
+{
+	return (bool)(preg_match('#^0[1-9][0-9]{0,2}-?[1-9][0-9]{5,7}$#', $Invoer) 
+			   && (strlen(str_replace(array('-', ' '), '', $Invoer)) == 10));
+}
+
+function is_Char_Only($Invoer)
+{
+	return (bool)(preg_match("/^[a-zA-ZÖö]*$/", $Invoer));
+}
+
+function is_Username_Unique($Invoer,$pdo)
+{
+	$parameters = array(':Username'=>$Invoer);
+	$sth = $pdo->prepare('SELECT PersoonsID FROM inloggegevens WHERE Gebruikersnaam = :Username LIMIT 1');
+
+	$sth->execute($parameters);
+
+	if ($sth->rowCount() == 1)
+	{
+		return false;//username komt voor
+	}
+	else
+	{
+		return true;//username komt niet voor
+	}
+}
+function is_Duration($Invoer)
+{
+	return (int)(preg_match("/^[0-9]*$/", $Invoer));
+}
 ?>
