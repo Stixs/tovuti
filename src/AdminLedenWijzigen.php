@@ -108,13 +108,32 @@
 						}
 						else
 						{
+							
+							
 							$parameters	= array(':PID'=>$_GET['PID'],
-												':PID1'=>$_GET['PID'],
-												':PID2'=>$_GET['PID']);
-							$sth = $pdo->prepare('SELECT * FROM groepsleiders gl, leden l, inloggegevens ig WHERE gl.PersoonsID = :PID OR l.PersoonsID = :PID1 OR ig.PersoonsID = :PID2');
+												':PID1'=>'PersoonsID',
+												':PID2'=>'PersoonsID',
+												':PID3'=>'PersoonsID',
+												':PID4'=>$_GET['PID'],
+												':PID5'=>'PersoonsID',
+												':PID6'=>'PersoonsID',
+												':PID7'=>'PersoonsID');
+							$sth = $pdo->prepare('SELECT * FROM groepsleiders gl, leden l, inloggegevens ig, persoonsgegevens pg WHERE pg.PersoonsID = :PID AND ig.PersoonsID = pg.:PID1 AND gl.PersoonsID = pg.:PID2 AND pg.PersoonsID = gl.:PID3 OR pg.PersoonsID = :PID4 AND ig.PersoonsID = pg.:PID5 AND l.PersoonsID = pg.:PID6 AND pg.PersoonsID = l.:PID7');
 							$sth->execute($parameters);
+							/*$parameters	= array(':PID'=>$_GET['PID'],
+												':PID1'=>'PersoonsID',
+												':PID2'=>'PersoonsID',
+												':PID3'=>'PersoonsID',
+												':PID4'=>$_GET['PID'],
+												':PID5'=>'PersoonsID',
+												':PID6'=>'PersoonsID',
+												':PID7'=>'PersoonsID');
+							$sth = $pdo->prepare('SELECT * FROM groepsleiders gl, leden l, inloggegevens ig, persoonsgegevens pg WHERE pg.PersoonsID = 17 AND ig.PersoonsID = pg.PersoonsID AND gl.PersoonsID = pg.PersoonsID AND pg.PersoonsID = gl.PersoonsID OR pg.PersoonsID = 17 AND ig.PersoonsID = pg.PersoonsID AND l.PersoonsID = pg.PersoonsID AND pg.PersoonsID = l.PersoonsID');
+							$sth->execute();*/
 							
 							$row = $sth->fetch();
+							
+							var_dump($row);
 							
 							$_SESSION['Achternaam'] = $row['Achternaam'];
 							$_SESSION['Voornaam'] = $row['Voornaam'];
@@ -124,6 +143,8 @@
 							$_SESSION['Telefoon'] = $row['Telefoon'];
 							$_SESSION['Userlevel'] = $row['Level'];
 							$_SESSION['Leeftijd'] = $row['Leeftijd'];
+							
+							
 							
 							require ('./Forms/AdminLedenWijzigenForm.php');
 						}
