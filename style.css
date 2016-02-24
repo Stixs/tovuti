@@ -4,7 +4,7 @@
 	
 }
 table, th, td, tr{
-	border: 0px
+	border: 0px;
 }
 .col-0_5	{ width: 4.165%;
 			  float: left;
@@ -200,6 +200,22 @@ input[type=text]:hover, input[type=password]:hover, input[type=number]:hover{
     box-shadow:inset 0px 0px 0px 1px #3399ff;
 }
 
+.evenementedit input[type=text]{
+	height: 25px;
+	width: 200px;
+	border-radius: 5px;
+	border: 1px solid white;
+	font-size: 17px;
+	color: #444;
+}
+.evenementedit input[type=text]:hover{
+	-webkit-box-shadow: none;
+}
+
+.evenementedit textarea{
+	border: none;
+}
+
 select{
 	height: 28px;
 	width: 202px;
@@ -211,6 +227,36 @@ select{
 }
 
 select:hover{
+	-webkit-box-shadow:inset 0px 0px 0px 1px #3399ff;
+    -moz-box-shadow:inset 0px 0px 0px 1px #3399ff;
+    box-shadow:inset 0px 0px 0px 1px #3399ff;
+}
+
+td{
+	height: 40px;
+}
+
+th{
+	text-align: right;
+}
+.eventTD{
+	width: 300px;
+}
+
+textarea {
+   resize: none;
+}
+
+input[type=submit], button{
+	height: 30px;
+	width: 150px;
+	border-radius: 5px;
+	border: 1px solid grey;
+	font-size: 18px;
+	font-weight: bold;
+	color: #444;
+}
+input[type=submit]:hover, button:hover{
 	-webkit-box-shadow:inset 0px 0px 0px 1px #3399ff;
     -moz-box-shadow:inset 0px 0px 0px 1px #3399ff;
     box-shadow:inset 0px 0px 0px 1px #3399ff;

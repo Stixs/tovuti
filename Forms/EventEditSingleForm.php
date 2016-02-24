@@ -28,7 +28,7 @@
 				</tr>
 				<tr>	
 					<td colspan="1"></td>
-					<td><input type="submit" name="submit" value="Toevoegen" /></td>
+					<td><input type="submit" name="submit" value="Wijzig" /></td>
 				</tr>
 			</table>
 		</form>
