@@ -109,10 +109,9 @@
 						else
 						{
 							$parameters	= array(':PID'=>$_GET['PID'],
-												':PID1'=>'PersoonsID',
-												':PID2'=>'PersoonsID',
-												':PID3'=>$_GET['PID']);
-							$sth = $pdo->prepare('SELECT * FROM groepsleiders gl, leden l, inloggegevens ig WHERE ig.PersoonsID = :PID AND l.PersoonsID = ig.:PID1 OR ig.PersoonsID = :PID3 AND gl.PersoonsID = ig.:PID2');
+												':PID1'=>$_GET['PID'],
+												':PID2'=>$_GET['PID']);
+							$sth = $pdo->prepare('SELECT * FROM groepsleiders gl, leden l, inloggegevens ig WHERE gl.PersoonsID = :PID OR l.PersoonsID = :PID1 OR ig.PersoonsID = :PID2');
 							$sth->execute($parameters);
 							
 							$row = $sth->fetch();
