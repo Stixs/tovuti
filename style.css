@@ -247,17 +247,80 @@ textarea {
    resize: none;
 }
 
-input[type=submit], button{
+input[type=submit]{
 	height: 30px;
 	width: 150px;
-	border-radius: 5px;
-	border: 1px solid grey;
+	border-radius: 2px;
+	border: 2px solid #608B51;
 	font-size: 18px;
 	font-weight: bold;
 	color: #444;
+	background-color: #8BD571;
+	display: inline-block
 }
-input[type=submit]:hover, button:hover{
-	-webkit-box-shadow:inset 0px 0px 0px 1px #3399ff;
-    -moz-box-shadow:inset 0px 0px 0px 1px #3399ff;
-    box-shadow:inset 0px 0px 0px 1px #3399ff;
+input[type=submit]:hover{
+	background-color: #80C168;
+}
+
+
+
+.button{
+	height: 20px;
+	width: 150px;
+	border-radius: 2px;
+	border: 2px solid #608B51;
+	font-size: 18px;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	color: #444;
+	background-color: #8BD571;
+	display: inline-block;
+	padding: 3px;
+}
+
+.button:hover{
+	background-color: #80C168;
+}
+
+.buttonbig{
+	height: 30px;
+	width: 200px;
+	font-size: 25px;
+	padding: 7px;
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 40px;
+}
+.buttonspaced{
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+.buttonwarning{
+	background-color: #E25B60!important;
+	border-color: #913C3E!important;
+}
+.buttonwarning:hover{
+	background-color: #CC5357!important;
+}
+
+.eventform{
+	border: 1px solid #C1EEE2;
+	border-radius: 15px;
+	background-color: #C1EEE2;
+}
+
+h2{
+	font-size: 30px;
+}
+
+h3{
+	text-align: center;
+	padding-top: 40px;
+}
+
+.confirm{
+	width: 100%;
+	text-align: center;
 }

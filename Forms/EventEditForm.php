@@ -1,7 +1,7 @@
 <div class="row evenementedit">
 	<div class="col-1"></div>
 	<div class="col-10">
-		<form name="RegistratieFormulier" action="" method="post">
+		<form name="eventform" class="eventform" action="" method="post">
 			<table>
 				<tr>
 					<th><label for="Naam">Naam Evenement:</label></th>
@@ -28,7 +28,8 @@
 				</tr>
 				<tr>	
 					<td colspan="1"></td>
-					<td><a href=?Page=12&event=wijzig&ID=<?php echo $EvenementID; ?>>Wijzig</a></td>
+					<td><a class="button" href=?Page=12&event=wijzig&ID=<?php echo $EvenementID; ?>>Wijzig
+					<td><a class="button buttonwarning" href=?Page=12&event=verwijder&ID=<?php echo $EvenementID; ?>>Verwijder</a></td>
 				</tr>
 			</table>
 		</form>

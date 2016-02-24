@@ -5,9 +5,12 @@ if(LoginCheck($pdo) AND $_SESSION['level'] == 4){
 	$NaamErr = $AdresErr = $PlaatsErr = $DatumErr = $TijdErr = $OmsErr = NULL;
 
 if(empty($_GET['event'])){
-	$_GET['event'] = null;
-echo '<a href=?Page=12&event=wijzig>Wijzig</a>';
-echo '<a href=?Page=12&event=new>New</a>';
+$_GET['event'] = null;
+
+echo '<div class="row">';
+echo '<a class="button buttonbig "href=?Page=12&event=wijzig>Wijzig</a>';
+echo '<a class="button buttonbig "href=?Page=12&event=new>Nieuw</a>';
+echo '</div>';
 	
 }
 
@@ -19,9 +22,11 @@ if($_GET['event'] == 'wijzig')
 		
 	$sth = $pdo->prepare("SELECT * FROM evenementen WHERE EvenementID = " . $_GET['ID']);
 		$sth->execute();
-		echo '<h1>Evenementen Wijzigen</h1>';
+		echo '<h2>Evenement Wijzigen</h2>';
 		
 		$row = $sth->fetch();
+		
+		
 		
 		$EvenementID = $row["EvenementID"];
 		$Naam = $row["Naam"];
@@ -34,7 +39,7 @@ if($_GET['event'] == 'wijzig')
 		$Tijd = date('H:i', strtotime($Tijd));
 		
 		
-	if(isset($_POST['submit']))
+	if(isset($_POST['wijzig']))
 		{
 		
 		$Naam = $_POST["Naam"];
@@ -118,7 +123,7 @@ $CheckOnErrors = false; // hulpvariabele voor het valideren van het formulier
 	{
 		$sth = $pdo->prepare("SELECT * FROM evenementen");
 			$sth->execute();
-			echo '<h1>Evenementen Wijzigen</h1>';
+			echo '<h2>Evenementen Wijzigen</h2>';
 			while($row = $sth->fetch())
 			{
 			$EvenementID = $row["EvenementID"];
@@ -195,7 +200,7 @@ elseif($_GET['event'] == 'new')
 	*/
 		if($CheckOnErrors == true) //aanvullen
 		{
-		echo '<h1>Evenement Toevoegen</h1>';
+		echo '<h2>Evenement Toevoegen</h2>';
 		require('./Forms/EventForm.php');
 		}
 		else
@@ -220,10 +225,29 @@ elseif($_GET['event'] == 'new')
 	}
 	else
 	{
-		echo '<h1>Evenement Toevoegen</h1>';
+		echo '<h2>Evenement Toevoegen</h2>';
 		require('./Forms/EventForm.php');
 	}
 }
+elseif($_GET['event'] == 'verwijder')
+	{		
+	echo'<h3>Weet je zeker dat je dit evenement wil verwijderen?</h3>';
+	echo'<div class=confirm>';
+	echo'<form method="post">';
+	echo'<input class="buttonspaced buttonwarning" type="submit" name="ja" value="Ja" />';
+	echo'<input class="buttonspaced" type="submit" name="nee" value="Nee" />';
+	echo'</from>';
+	echo'</div>';
+	if(isset($_POST['ja']))
+		{
+		
+			echo'delete';
+		}
+	elseif(isset($_POST['nee']))
+		{
+			echo'no delete';
+		}
+	}
 }
 ?>
 
