@@ -205,7 +205,7 @@
 								echo '<th>Achternaam</th><th>Voornaam</th><th>Adres</th><th>Woonplaats</th><th>Email</th><th>Wijzigen</th><th>Verwijder</th>';
 								
 								$parameters = array(':GroepID'=>$groep);
-								$sth1 = $pdo->prepare('SELECT * FROM persoonsgegevens p, groepsleiders gl, groep g, inloggegevens ig WHERE gl.PersoonsID = p.PersoonsID AND gl.GroepID = g.GroepID AND gl.GroepID = :GroepID AND ig.PersoonsID = gl.PersoonsID');
+								$sth1 = $pdo->prepare('SELECT * FROM persoonsgegevens p, groepsleiders gl, groep g, inloggegevens ig WHERE gl.PersoonsID = p.PersoonsID AND gl.GroepID = g.GroepID AND gl.GroepID = :GroepID AND ig.PersoonsID = p.PersoonsID');
 								$sth1->execute($parameters);
 								$row1 = $sth1->fetch();
 								if(isset($row1['PersoonsID']))
@@ -216,7 +216,7 @@
 								}
 								
 								$parameters = array(':GroepID'=>$groep);
-								$sth2 = $pdo->prepare('SELECT * FROM persoonsgegevens p, leden l, groep g, inloggegevens ig WHERE l.PersoonsID = p.PersoonsID AND l.GroepID = :GroepID AND l.GroepID = g.GroepID AND ig.PersoonsID = l.PersoonsID');
+								$sth2 = $pdo->prepare('SELECT * FROM persoonsgegevens p, leden l, groep g, inloggegevens ig WHERE l.PersoonsID = p.PersoonsID AND l.GroepID = :GroepID AND l.GroepID = g.GroepID AND ig.PersoonsID = p.PersoonsID');
 								$sth2->execute($parameters);
 								
 								while($row2 = $sth2->fetch())
