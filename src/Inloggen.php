@@ -1,6 +1,40 @@
 <?php
 
+function oldpass($Gebruikersnaam, $password, $pdo)
+{
+	
+	$parameters = array(':Gebruikersnaam'=>$Gebruikersnaam);
+	$sth = $pdo->prepare('select * from inloggegevens where Gebruikersnaam = :Gebruikersnaam');
 
+	$sth->execute($parameters);
+
+	if ($sth->rowCount() == 1) 
+	{
+		// Variabelen inlezen uit query
+		$row = $sth->fetch();
+		
+
+		$password = hash('sha512', $password . $row['Salt']);
+
+
+		if ($row['Wachtwoord'] == $password) 
+		{
+			
+			// Login successful.
+			return true;
+		 } 
+		 else 
+		 {
+			// password incorrect
+			return false;
+		 }
+	}
+	else
+	{
+		// username bestaat niet
+		return false;
+	}
+}
 function login($Gebruikersnaam, $password, $pdo)
 {
 	

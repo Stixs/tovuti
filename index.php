@@ -50,6 +50,15 @@ $pdo = ConnectDB();
 							case 5:
 							require	('./src/Leden.php');
 							break;
+							case 6:
+							require ('./src/ProfielGL.php');
+							break;
+							case 7:
+							require ('./src/MijnGroepGL.php');
+							break;
+							case 8:
+							require ('./src/Leden.php');
+							break;
 							case 9:
 							require	('./src/Betalen.php');
 							break;

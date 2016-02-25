@@ -1,5 +1,5 @@
 <?php
-if(LoginCheck($pdo) AND $_SESSION['level'] == 1){
+if(LoginCheck($pdo) AND $_SESSION['level'] == 2){
 
 	//init fields
 	$Voornaam = $Achternaam = $Adres = $Postcode = $Woonplaats = $Telefoon = $Email = $Gebruikersnaam = $oudWachtwoord = $nieuwWachtwoord = $herhaalWachtwoord = $Level = $Leeftijd = $Groep = NULL;
@@ -37,7 +37,7 @@ if(LoginCheck($pdo) AND $_SESSION['level'] == 1){
 	}
 	elseif(isset($_POST['wijzigprofiel']))
 	{
-		$sth = $pdo->prepare("SELECT * FROM persoonsgegevens p, leden l, inloggegevens i WHERE p.PersoonsID = l.PersoonsID AND p.PersoonsID = i.PersoonsID");
+		$sth = $pdo->prepare("SELECT * FROM persoonsgegevens p, groepsleiders gl, inloggegevens i WHERE p.PersoonsID = gl.PersoonsID AND p.PersoonsID = i.PersoonsID");
 		$sth->execute();
 		
 		$row = $sth->fetch();
@@ -56,7 +56,7 @@ if(LoginCheck($pdo) AND $_SESSION['level'] == 1){
 	}
 	else
 	{
-		$sth = $pdo->prepare("SELECT * FROM persoonsgegevens p, leden l, inloggegevens i, groep g WHERE p.PersoonsID = l.PersoonsID AND p.PersoonsID = i.PersoonsID AND g.GroepID = l.GroepID");
+		$sth = $pdo->prepare("SELECT * FROM persoonsgegevens p, groepsleiders gl, inloggegevens i, groep g WHERE p.PersoonsID = gl.PersoonsID AND p.PersoonsID = i.PersoonsID AND g.GroepID = l.GroepID");
 		$sth->execute();
 		
 		$row = $sth->fetch();

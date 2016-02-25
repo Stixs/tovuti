@@ -42,21 +42,6 @@
 				<tr>
 					<td></td>
 				</tr>
-				<tr>
-					<td><label for="oudWachtwoord">Oud Wachtwoord:</label></td>
-					<td><input type="password" id="oudWachtwoord" name="oudWachtwoord" /></td><?php echo $PassErr; ?>
-				</tr>
-				<tr>
-					<td><label for="nieuwWachtwoord">Nieuw Wachtwoord:</label></td>
-					<td><input type="password" id="nieuwWachtwoord" name="nieuwWachtwoord" /></td><?php echo $PassErr; ?>
-				</tr>
-				<tr>
-					<td><label for="Herhaalwachtwoord">Herhaal Nieuw Wachtwoord:</label></td>
-					<td><input type="password" id="Herhaalwachtwoord" name="herhaalWachtwoord" /></td><?php echo $RePassErr; ?>
-				</tr>
-				
-				
-				
 				<tr>	
 					<td><input type="submit" name="Wijzig" value="Wijzig" /></td>
 				</tr>
