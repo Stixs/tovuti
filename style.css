@@ -318,6 +318,15 @@ textarea {
 	margin-left: 20px;
 	margin-right: 40px;
 }
+
+.buttonsmall{
+	height: 13px;
+	width: 65px;
+	font-size: 16px;
+	line-height: 14px;
+
+}
+
 .buttonspaced{
 	margin-left: 30px;
 	margin-right: 30px;

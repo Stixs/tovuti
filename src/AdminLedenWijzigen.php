@@ -179,7 +179,7 @@
 								if(isset($row1['PersoonsID']))
 								{
 									echo '<tr>';
-									echo '<td>'.$row1['Achternaam'].'</td><td>'.$row1['Voornaam'].'</td><td>'.$row1['Adres'].'</td><td>'.$row1['Woonplaats'].'</td><td>'.$row1['Leeftijd'].'</td><td>'.$row1['Groepnaam'].'</td><td>'.$row1['Email'].'</td><td>'.$row1['Telefoon'].'</td><td><a href="./index.php?Page=10&Action=Edit&PID='.$row1['PersoonsID'].'" class="button">Wijzigen</a></td>';
+									echo '<td>'.$row1['Achternaam'].'</td><td>'.$row1['Voornaam'].'</td><td>'.$row1['Adres'].'</td><td>'.$row1['Woonplaats'].'</td><td>'.$row1['Leeftijd'].'</td><td>'.$row1['Groepnaam'].'</td><td>'.$row1['Email'].'</td><td>'.$row1['Telefoon'].'</td><td><a href="./index.php?Page=10&Action=Edit&PID='.$row1['PersoonsID'].'" class="button buttonsmall">Wijzigen</a></td>';
 									echo '</tr>';
 								}
 								
@@ -190,7 +190,7 @@
 								while($row2 = $sth2->fetch())
 								{
 									echo '<tr>';
-									echo '<td>'.$row2['Achternaam'].'</td><td>'.$row2['Voornaam'].'</td><td>'.$row2['Adres'].'</td><td>'.$row2['Woonplaats'].'</td><td>'.$row2['Leeftijd'].'</td><td>'.$row2['Groepnaam'].'</td><td>'.$row2['Email'].'</td><td>'.$row2['Telefoon'].'</td><td><a href="./index.php?Page=10&Action=Edit&PID='.$row2['PersoonsID'].'" class="button">Wijzigen</a></td>';
+									echo '<td>'.$row2['Achternaam'].'</td><td>'.$row2['Voornaam'].'</td><td>'.$row2['Adres'].'</td><td>'.$row2['Woonplaats'].'</td><td>'.$row2['Leeftijd'].'</td><td>'.$row2['Groepnaam'].'</td><td>'.$row2['Email'].'</td><td>'.$row2['Telefoon'].'</td><td><a href="./index.php?Page=10&Action=Edit&PID='.$row2['PersoonsID'].'" class="button buttonsmall">Wijzigen</a></td>';
 									echo '</tr>';
 								}
 								
