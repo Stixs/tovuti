@@ -64,7 +64,10 @@ function is_NL_Telnr($Invoer)
 	return (bool)(preg_match('#^0[1-9][0-9]{0,2}-?[1-9][0-9]{5,7}$#', $Invoer) 
 			   && (strlen(str_replace(array('-', ' '), '', $Invoer)) == 10));
 }
-
+function is_Numb($Invoer)
+{
+	return (bool)(preg_match('#^0[1-9][0-9]{0,2}-?[1-9][0-9]{5,7}$#', $Invoer));
+}
 function is_Char_Only($Invoer)
 {
 	return (bool)(preg_match("/^[a-zA-ZÖö]*$/", $Invoer));

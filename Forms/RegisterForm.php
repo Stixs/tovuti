@@ -6,32 +6,38 @@
 			<table>
 				<tr>
 					<td><label for="Voornaam">Voornaam:</label></td>
-					<td><input type="text" id="Voornaam" name="Voornaam" value="<?php echo $Voornaam; ?>"/></td><?php echo $FnameErr; ?>
+					<td><input type="text" id="Voornaam" name="Voornaam" value="<?php echo $Voornaam; ?>" required /></td>
 				</tr>
+				<?php echo $FnameErr; ?>
 				<tr>
 					<td><label for="Achternaam">Achternaam:</label></td>
-					<td><input type="text" id="Achternaam" name="Achternaam" value="<?php echo $Achternaam; ?>" /></td><?php echo $LnameErr; ?>
+					<td><input type="text" id="Achternaam" name="Achternaam" value="<?php echo $Achternaam; ?>" required /></td>
 				</tr>
+				<?php echo $LnameErr; ?>
 				<tr>
 					<td><label for="Adres">Adres:</label></td>
-					<td><input type="text" id="Adres" name="Adres" value="<?php echo $Adres; ?>" /></td>
+					<td><input type="text" id="Adres" name="Adres" value="<?php echo $Adres; ?>" required /></td>
 				</tr>
 				<tr>
 					<td><label for="Postcode">Postcode:</label></td>
-					<td><input type="text" id="Postcode" name="Postcode" value="<?php echo $Postcode; ?>" /></td><?php echo $ZipErr; ?>	
+					<td><input type="text" id="Postcode" name="Postcode" value="<?php echo $Postcode; ?>" required /></td>	
 				</tr>
+				<?php echo $ZipErr; ?>
 				<tr>
 					<td><label for="Woonplaats">Woonplaats:</label></td>
-					<td><input type="text" id="Woonplaats" name="Woonplaats" value="<?php echo $Woonplaats; ?>" /></td><?php echo $CityErr;?>
+					<td><input type="text" id="Woonplaats" name="Woonplaats" value="<?php echo $Woonplaats; ?>" required /></td>
 				</tr>
+				<?php echo $CityErr;?>
 				<tr>
 					<td><label for="Telefoon">Telefoon:</label></td>
-					<td><input type="text" id="Telefoon" name="Telefoon" value="<?php echo $Telefoon; ?>" /></td><?php echo $TelErr; ?>
+					<td><input type="text" id="Telefoon" name="Telefoon" value="<?php echo $Telefoon; ?>" required /></td>
 				</tr>
+				<?php echo $TelErr; ?>
 				<tr>
 					<td><label for="Email">E-mail:</label></td>
-					<td><input type="text" id="Email" name="Email" value="<?php echo $Email; ?>" /></td><?php echo $MailErr; ?>
+					<td><input type="text" id="Email" name="Email" value="<?php echo $Email; ?>" required /></td>
 				</tr>
+				<?php echo $MailErr; ?>
 				<tr>
 					<td><label for="type">User type:</label></td>
 					<td>
@@ -49,16 +55,19 @@
 				</tr>
 				<tr>
 					<td><label for="Gebruikersnaam">Gebruikersnaam:</label></td>
-					<td><input type="text" id="Gebruikersnaam" name="Gebruikersnaam" value="<?php echo $Gebruikersnaam; ?>" /></td><?php echo $UserErr; ?>
+					<td><input type="text" id="Gebruikersnaam" name="Gebruikersnaam" value="<?php echo $Gebruikersnaam; ?>" required /></td>
 				</tr>
+				<?php echo $UserErr; ?>
 				<tr>
 					<td><label for="Wachtwoord">Wachtwoord:</label></td>
-					<td><input type="password" id="Wachtwoord" name="Wachtwoord" /></td><?php echo $PassErr; ?>
+					<td><input type="password" id="Wachtwoord" name="Wachtwoord" required /></td>
 				</tr>
+				<?php echo $PassErr; ?>
 				<tr>
-					<td><label for="Herhaalwachtwoord">Herhaal Paswoord:</label></td>
-					<td><input type="password" id="Herhaalwachtwoord" name="Herhaalwachtwoord" /></td><?php echo $RePassErr; ?>
+					<td><label for="Herhaalwachtwoord">Herhaal Wachtwoord:</label></td>
+					<td><input type="password" id="Herhaalwachtwoord" name="Herhaalwachtwoord" required /></td>
 				</tr>
+				<?php echo $RePassErr; ?>
 				<tr>	
 					<td><input type="submit" name="Registreren" value="Registreer!" /></td>
 				</tr>
@@ -67,8 +76,9 @@
 			<table>
 				<tr>
 					<td><label for="Leeftijd">Leeftijd:</label></td>
-					<td><input type="number" id="Leeftijd" name="Leeftijd" /></td><?php echo $LeefErr; ?>
+					<td><input type="number" id="Leeftijd" name="Leeftijd" required /></td>
 				</tr>
+				<?php echo $LeefErr; ?>
 				<tr>
 					<td><label for="Groep">Groep:</label></td>
 					<td>
