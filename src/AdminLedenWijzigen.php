@@ -102,7 +102,7 @@
 									$sth->execute($parameters);
 								}
 								
-								echo 'U heeft de gegevens succesvol verwijderd.';
+								echo 'U heeft de gegevens succesvol gewijzigd.';
 								header('Refresh 3, URL=index.php?Page=10');
 							}
 						}
@@ -150,6 +150,38 @@
 							require ('./Forms/AdminLedenWijzigenForm.php');
 						}
 					break;
+					case 'DEL':
+						echo '<h3>Weet u zeker dat je deze gegevens wilt verwijderen?</h3>';
+						echo'<div class=confirm>';
+						echo'<form method="post">';
+						echo'<input class="buttonspaced buttonwarning" type="submit" name="ja" value="Ja" style="cursor: pointer;" />';
+						echo'<input class="buttonspaced" type="submit" name="nee" value="Nee" style="cursor: pointer;" />';
+						echo'</from>';
+						echo'</div>';
+						if(isset($_POST['ja']))
+							{
+								$parameters = array (':PID'=>$_GET['PID']);
+								$sth = $sth->prepare('DELETE FROM inloggegevens WHERE PersoonsID = :PID');
+								$sth->execute($parameters);
+								if($_GET['ULVL'] == 1)
+								{
+									$parameters = array (':PID'=>$_GET['PID']);
+									$sth = $sth->prepare('DELETE FROM leden WHERE PersoonsID = :PID');
+									$sth->execute($parameters);
+								}
+								elseif($_GET['ULVL'] == 2)
+								{
+									$parameters = array (':PID'=>$_GET['PID']);
+									$sth = $sth->prepare('DELETE FROM groepsleiders WHERE PersoonsID = :PID');
+									$sth->execute($parameters);
+								}
+							}
+						elseif(isset($_POST['nee']))
+							{
+								header("Refresh: 0;URL=index.php?Page=10");
+							}
+						
+					break;
 				}
 			}
 			else
@@ -167,30 +199,30 @@
 							{
 								echo '<table class="col-12">';
 								echo '<tr>';
-								echo '<th colspan="10">'.$row['Groepnaam'].'</th>';
+								echo '<th colspan="8"><h1>Groep '.$row['Groepnaam'].'</h1></th>';
 								echo '</tr>';
 								$groep = $row['GroepID'];
-								echo '<th>Achternaam</th><th>Voornaam</th><th>Adres</th><th>Woonplaats</th><th>Leeftijd</th><th>Groep</th><th>Email</th><th>Telefoon</th><th>Wijzigen</th>';
+								echo '<th>Achternaam</th><th>Voornaam</th><th>Adres</th><th>Woonplaats</th><th>Email</th><th>Wijzigen</th><th>Verwijder</th>';
 								
 								$parameters = array(':GroepID'=>$groep);
-								$sth1 = $pdo->prepare('SELECT * FROM persoonsgegevens p, groepsleiders gl, groep g WHERE gl.PersoonsID = p.PersoonsID AND gl.GroepID = g.GroepID AND gl.GroepID = :GroepID');
+								$sth1 = $pdo->prepare('SELECT * FROM persoonsgegevens p, groepsleiders gl, groep g, inloggegevens ig WHERE gl.PersoonsID = p.PersoonsID AND gl.GroepID = g.GroepID AND gl.GroepID = :GroepID AND ig.PersoonsID = gl.PersoonsID');
 								$sth1->execute($parameters);
 								$row1 = $sth1->fetch();
 								if(isset($row1['PersoonsID']))
 								{
 									echo '<tr>';
-									echo '<td>'.$row1['Achternaam'].'</td><td>'.$row1['Voornaam'].'</td><td>'.$row1['Adres'].'</td><td>'.$row1['Woonplaats'].'</td><td>'.$row1['Leeftijd'].'</td><td>'.$row1['Groepnaam'].'</td><td>'.$row1['Email'].'</td><td>'.$row1['Telefoon'].'</td><td><a href="./index.php?Page=10&Action=Edit&PID='.$row1['PersoonsID'].'" class="button buttonsmall">Wijzigen</a></td>';
+									echo '<td>'.$row1['Achternaam'].'</td><td>'.$row1['Voornaam'].'</td><td>'.$row1['Adres'].'</td><td>'.$row1['Woonplaats'].'</td><td>'.$row1['Email'].'</td><td><a href="./index.php?Page=10&Action=Edit&PID='.$row1['PersoonsID'].'" class="button buttonsmall">Wijzigen</a></td><td><a href="./index.php?Page=10&Action=DEL&PID='.$row1['PersoonsID'].'&ULVL='.$row1['Level'].'" class="button buttonsmall">Verwijder</a></td>';
 									echo '</tr>';
 								}
 								
 								$parameters = array(':GroepID'=>$groep);
-								$sth2 = $pdo->prepare('SELECT * FROM persoonsgegevens p, leden l, groep g WHERE l.PersoonsID = p.PersoonsID AND l.GroepID = :GroepID AND l.GroepID = g.GroepID');
+								$sth2 = $pdo->prepare('SELECT * FROM persoonsgegevens p, leden l, groep g, inloggegevens ig WHERE l.PersoonsID = p.PersoonsID AND l.GroepID = :GroepID AND l.GroepID = g.GroepID AND ig.PersoonsID = l.PersoonsID');
 								$sth2->execute($parameters);
 								
 								while($row2 = $sth2->fetch())
 								{
 									echo '<tr>';
-									echo '<td>'.$row2['Achternaam'].'</td><td>'.$row2['Voornaam'].'</td><td>'.$row2['Adres'].'</td><td>'.$row2['Woonplaats'].'</td><td>'.$row2['Leeftijd'].'</td><td>'.$row2['Groepnaam'].'</td><td>'.$row2['Email'].'</td><td>'.$row2['Telefoon'].'</td><td><a href="./index.php?Page=10&Action=Edit&PID='.$row2['PersoonsID'].'" class="button buttonsmall">Wijzigen</a></td>';
+									echo '<td>'.$row2['Achternaam'].'</td><td>'.$row2['Voornaam'].'</td><td>'.$row2['Adres'].'</td><td>'.$row2['Woonplaats'].'</td><td>'.$row2['Email'].'</td><td><a href="./index.php?Page=10&Action=Edit&PID='.$row2['PersoonsID'].'" class="button buttonsmall">Wijzigen</a></td><td><a href="./index.php?Page=10&Action=DEL&PID='.$row2['PersoonsID'].'&ULVL='.$row2['Level'].'" class="button buttonsmall">Verwijder</a></td>';
 									echo '</tr>';
 								}
 								

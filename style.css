@@ -254,6 +254,9 @@ h3{
 .tableALW th, .tableALW td	{
 	border-bottom: 1px solid;
 }
+.tableALW th	{
+	width: auto;
+}
 .registreren table{
 	float: left;
 	font-weight: bold;
