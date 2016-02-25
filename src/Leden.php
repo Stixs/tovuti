@@ -7,9 +7,9 @@
 		
 		while($row = $sth->fetch())
 		{
-			echo '<table class="col-12">';
+			echo '<table class="spacetop col-12">';
 			echo '<tr>';
-			echo '<th class="titel" colspan="4"><h1>'.$row['Groepnaam'].'</h1></th>';
+			echo '<th class="titel" colspan="4"><h1>Groep '.$row['Groepnaam'].'</h1></th>';
 			echo '</tr>';
 			$groep = $row['GroepID'];
 			echo '<th class="naam">Naam</th><th class="achternaam">Achternaam</th><th class="plaats">Woonplaats</th><th class="email">Email</th>';
