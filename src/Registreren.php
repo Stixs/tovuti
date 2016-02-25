@@ -44,117 +44,82 @@ if(LoginCheck($pdo) AND $_SESSION['level'] == 4){
 		
 		//BEGIN CONTROLES
 
-	/*
+	
 		//controleer het voornaam veld
 		if(!is_minlength($Voornaam, 2))
 		{
-		$FnameErr = 'Voornaam moet uit minimaal 2 tekens bestaan';
+		$FnameErr = '<tr class="foutmelding"><td>Voornaam moet uit minimaal 2 tekens bestaan</td></tr>';
 		$CheckOnErrors = true;
 		}
 		if(!is_Char_Only($Voornaam))
 		{
-		$FnameErr = 'Alleen letters zijn toegestaan';
-		$CheckOnErrors = true;
-		}
-		if ($Voornaam == null)
-		{
-		$FnameErr = 'Voornaam is verplicht!';
+		$FnameErr = '<tr class="foutmelding"><td>Alleen letters zijn toegestaan</td></tr>';
 		$CheckOnErrors = true;
 		}
 		//controleer het achternaam veld
 		if(!is_minlength($Achternaam, 2))
 		{
-		$LnameErr = 'Voornaam moet uit minimaal 2 tekens bestaan';
+		$LnameErr = '<tr class="foutmelding"><td>Achternaam moet uit minimaal 2 tekens bestaan</td></tr>';
 		$CheckOnErrors = true;
 		}
 		if(!is_Char_Only($Achternaam))
 		{
-		$LnameErr = 'Alleen letters zijn toegestaan';
-		$CheckOnErrors = true;
-		}
-		if ($Achternaam == null)
-		{
-		$LnameErr = 'Achternaam is verplicht!';
+		$LnameErr = '<tr class="foutmelding"><td>Alleen letters zijn toegestaan</td></tr>';
 		$CheckOnErrors = true;
 		}
 		
 		//controleer het postcode veld	
 		if(!is_NL_PostalCode($Postcode))
 		{
-		$ZipErr = 'Postcode incorrect';
+		$ZipErr = '<tr class="foutmelding"><td>Postcode incorrect</td></tr>';
 		$CheckOnErrors = true;
 		}
 
 		//controleer het plaats veld
 		if(!is_Char_Only($Woonplaats))
 		{
-		$WoonplaatsErr = 'Alleen letters zijn toegestaan';
+		$WoonplaatsErr = '<tr class="foutmelding"><td>Alleen letters zijn toegestaan</td></tr>';
 		$CheckOnErrors = true;
 		}
 
 		//controleer het telnr veld
 		if(!is_NL_Telnr($Telefoon))
 		{
-		$TelErr = 'Telefoonnummer incorrect';
-		$CheckOnErrors = true;
-		}
-		if ($Telefoon == null)
-		{
-		$TelErr = 'Telefoonnummer is verplicht!';
+		$TelErr = '<tr class="foutmelding"><td>Telefoonnummer incorrect</td></tr>';
 		$CheckOnErrors = true;
 		}
 		
 		//controleer het email veld
 		if(!is_email($Email))
 		{
-		$MailErr = 'Email incorrect';
-		$CheckOnErrors = true;
-		}
-		if ($Email == null)
-		{
-		$MailErr = 'Email is verplicht!';
+		$MailErr = '<tr class="foutmelding"><td>Email incorrect</td></tr>';
 		$CheckOnErrors = true;
 		}
 
 		//controleer het username veld
-		if(!is_Gebruikersnaam_Unique($Gebruikersnaam, $pdo))
+		if(!is_Username_Unique($Gebruikersnaam, $pdo))
 		{
-		$UserErr = 'Gebruikersnaam is al in gebruik';
-		$CheckOnErrors = true;
-		}
-		if ($Gebruikersnaam == null)
-		{
-		$UserErr = 'Gebruikersnaam is verplicht!';
+		$UserErr = '<tr class="foutmelding"><td>Gebruikersnaam is al in gebruik</td></tr>';
 		$CheckOnErrors = true;
 		}
 		
 		//controleer het paswoord veld
 		if(!is_minlength($Wachtwoord, 6))
 		{
-		$PassErr = 'Wachtwoord moet uit minimaal 6 tekens bestaan';
-		$CheckOnErrors = true;
-		}
-		if ($Wachtwoord == null)
-		{
-		$PassErr = 'Wachtwoord is verplicht!';
+		$PassErr = '<tr class="foutmelding"><td>Wachtwoord moet uit minimaal 6 tekens bestaan</td></tr>';
 		$CheckOnErrors = true;
 		}
 		
 		//controleer het retype paswoord veld
-		if($Wachtwoord != $RetypeWachtwoord)
+		if($Wachtwoord != $Herhaalwachtwoord)
 		{
-		$RePassErr = 'Wachtwoord niet hetzelfde';
+		$RePassErr = '<tr class="foutmelding"><td>Wachtwoord niet hetzelfde</td></tr>';
 		$CheckOnErrors = true;
 		}
-		if ($RetypeWachtwoord == null)
-		{
-		$RePassErr = 'Wachtwoord is verplicht!';
-		$CheckOnErrors = true;
-		}
-	*/
+	
 		if($CheckOnErrors == true) //aanvullen
 		{
-		require('./Forms/RegistrerenForm.php');
+		require('./Forms/RegisterForm.php');
 		}
 		else
 		{
