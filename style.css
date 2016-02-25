@@ -259,7 +259,7 @@ h3{
 }
 .registreren table{
 	float: left;
-	font-weight: bold;
+
 }
 
 
@@ -363,4 +363,10 @@ textarea {
 
 .spacetop{
 	margin-bottom: 20px;
+}
+
+.inloggenform{
+	margin-left: auto;
+	margin-right: auto;
+	
 }

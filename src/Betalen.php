@@ -75,7 +75,7 @@
 			while($row = $sth->fetch())
 			{
 				echo '<tr>';
-				echo '<td>'.$row['Voornaam'].'</td><td>'.$row['Achternaam'].'</td><td>'.$row['Betaalstatus'].'</td><td>'.$row['Betaalmethode'].'</td>';
+				echo '<td>'.$row['Voornaam'].'</td><td>'.$row['Achternaam'].'</td><td>'.str_replace("nietb","Niet B",$row['Betaalstatus']).'</td><td>'.$row['Betaalmethode'].'</td>';
 				echo '</tr>';
 			}
 			

@@ -41,6 +41,9 @@ $pdo = ConnectDB();
 							case 2:
 							require ('./src/Contact.php');
 							break;
+							case 3:
+							require ('./src/Profiel.php');
+							break;
 							case 4:
 							require ('./src/MijnGroep.php');
 							break;
