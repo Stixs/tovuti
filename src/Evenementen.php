@@ -111,7 +111,7 @@ $CheckOnErrors = false; // hulpvariabele voor het valideren van het formulier
 		
 			
 
-			echo 'U heeft het evenement gewijzigd';
+			header("Refresh: 0;URL=index.php?Page=12&event=wijzig");
 		}
 		}
 		else
@@ -220,7 +220,7 @@ elseif($_GET['event'] == 'new')
 		
 			
 
-			echo 'U heeft het evenement aangemaakt';
+			header("Refresh: 0;URL=index.php?Page=12&event=wijzig");
 		}
 	}
 	else
@@ -240,14 +240,18 @@ elseif($_GET['event'] == 'verwijder')
 	echo'</div>';
 	if(isset($_POST['ja']))
 		{
-		
-			echo'delete';
+			$parameters = array(':EvenementID'=>$_GET['ID']);
+			$sth = $pdo->prepare('DELETE FROM evenementen WHERE EvenementID = :EvenementID');
+			$sth->execute($parameters);
+			$LastID = $pdo->lastInsertId();
+			header("Refresh: 0;URL=index.php?Page=12&event=wijzig");
 		}
 	elseif(isset($_POST['nee']))
 		{
-			echo'no delete';
+			header("Refresh: 0;URL=index.php?Page=12&event=wijzig");
 		}
 	}
+	
 }
 ?>
 

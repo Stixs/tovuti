@@ -1,7 +1,7 @@
 <div class="row evenement">
 	<div class="col-1"></div>
 	<div class="col-10">
-		<form name="RegistratieFormulier" action="" method="post">
+		<form name="RegistratieFormulier" class="eventform" action="" method="post">
 			<table>
 				<tr>
 					<th><label for="Naam">Naam Evenement:</label></th>

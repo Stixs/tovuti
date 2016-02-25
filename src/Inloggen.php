@@ -58,6 +58,7 @@ if(isset($_POST['Inloggen']))
 	if (login($Gebruikersnaam, $password, $pdo) == true)
 	{
 	echo 'U bent succesvol ingelogd';
+	header("Refresh: 0;URL=index.php?Page=1");
 	}
 	else
 	{
