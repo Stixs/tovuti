@@ -73,6 +73,7 @@ if(LoginCheck($pdo) AND $_SESSION['level'] == 1){
 		$Leeftijd = $row['Leeftijd'];
 		
 		$Betaalmethode = $row['Betaalmethode'];
+		$Betaalstatus = $row['Betaalstatus'];
 		
 		$Gebruikersnaam = $row['Gebruikersnaam'];
 		

@@ -56,7 +56,7 @@ if(LoginCheck($pdo) AND $_SESSION['level'] == 2){
 	}
 	else
 	{
-		$sth = $pdo->prepare("SELECT * FROM persoonsgegevens p, groepsleiders gl, inloggegevens i, groep g WHERE p.PersoonsID = gl.PersoonsID AND p.PersoonsID = i.PersoonsID AND g.GroepID = l.GroepID");
+		$sth = $pdo->prepare("SELECT * FROM persoonsgegevens p, groepsleiders gl, inloggegevens i, groep g WHERE p.PersoonsID = gl.PersoonsID AND p.PersoonsID = i.PersoonsID AND g.GroepID = gl.GroepID");
 		$sth->execute();
 		
 		$row = $sth->fetch();
@@ -72,11 +72,10 @@ if(LoginCheck($pdo) AND $_SESSION['level'] == 2){
 		$Groep = $row['Groepnaam'];
 		$Leeftijd = $row['Leeftijd'];
 		
-		$Betaalmethode = $row['Betaalmethode'];
 		
 		$Gebruikersnaam = $row['Gebruikersnaam'];
 		
-		require('./Forms/ProfielForm.php');
+		require('./Forms/ProfielFormGL.php');
 	}
 }
 ?>

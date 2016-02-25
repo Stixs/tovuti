@@ -37,14 +37,6 @@
 					<td><?php echo $Leeftijd; ?></td>
 				</tr>
 				<tr>
-					<th><label for="Methode">Betaalmethode:</label></t>
-					<td><?php echo $Betaalmethode; ?></td>
-				</tr>
-				<tr>
-					<th><label for="Status">Betaalstatus:</label></t>
-					<td><?php echo $Betaalstatus; ?></td>
-				</tr>
-				<tr>
 					<th><label for="Gebruikersnaam">Gebruikersnaam:</label></th>
 					<td><?php echo $Gebruikersnaam; ?></td>
 				</tr>
