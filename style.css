@@ -370,3 +370,7 @@ textarea {
 	margin-right: auto;
 	
 }
+.foutmelding	{
+	font-size: 11px;
+	color: red;
+}
