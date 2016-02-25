@@ -1,5 +1,6 @@
 <?php
 
+
 function login($Gebruikersnaam, $password, $pdo)
 {
 	

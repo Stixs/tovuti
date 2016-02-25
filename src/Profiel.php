@@ -2,14 +2,13 @@
 if(LoginCheck($pdo) AND $_SESSION['level'] == 1){
 
 	//init fields
-	$Voornaam = $Achternaam = $Adres = $Postcode = $Woonplaats = $Telefoon = $Email = $Gebruikersnaam = $Wachtwoord = $RetypeWachtwoord = $Level = $Leeftijd = $Groep = NULL;
+	$Voornaam = $Achternaam = $Adres = $Postcode = $Woonplaats = $Telefoon = $Email = $Gebruikersnaam = $oudWachtwoord = $nieuwWachtwoord = $herhaalWachtwoord = $Level = $Leeftijd = $Groep = NULL;
 
 	//init error fields
 	$FnameErr = $LnameErr = $ZipErr = $CityErr = $TelErr = $MailErr = $UserErr = $PassErr = $RePassErr = $LeefErr = NULL;
 	
 	if(isset($_POST['Wijzig']))
 	{
-		$row = $sth->fetch();
 		
 		$Voornaam = $_POST['Voornaam'];
 		$Achternaam = $_POST['Achternaam'];
@@ -18,10 +17,29 @@ if(LoginCheck($pdo) AND $_SESSION['level'] == 1){
 		$Woonplaats = $_POST['Woonplaats'];
 		$Telefoon = $_POST['Telefoon'];
 		$Email = $_POST['Email'];
-		
-		$Betaalmethode = $_POST['Betaalmethode'];
-		
+
 		$Gebruikersnaam = $_POST['Gebruikersnaam'];
+		$oudWachtwoord = $_POST['oudWachtwoord'];
+		$nieuwWachtwoord = $_POST['nieuwWachtwoord'];
+		$herhaalWachtwoord = $_POST['herhaalWachtwoord'];
+		
+		
+		
+		
+		
+		
+		
+		$parameters = array(':PersoonsID'=>$_SESSION['user_id'],
+							':Voornaam'=>$Voornaam,
+							':Achternaam'=>$Achternaam,
+							':Adres'=>$Adres,
+							':Postcode'=>$Postcode,
+							':Woonplaats'=>$Woonplaats,
+							':Telefoon'=>$Telefoon,
+							':Email'=>$Email);
+		$sth = $pdo->prepare('UPDATE persoonsgegevens SET Achternaam = :Achternaam, Voornaam = :Voornaam, Adres = :Adres, Postcode = :Postcode, Woonplaats = :Woonplaats, Telefoon = :Telefoon, Email = :Email WHERE PersoonsID = :PersoonsID');
+		$sth->execute($parameters);
+		
 		
 		require('./Forms/EditProfielForm.php');
 	}
@@ -39,8 +57,6 @@ if(LoginCheck($pdo) AND $_SESSION['level'] == 1){
 		$Woonplaats = $row['Woonplaats'];
 		$Telefoon = $row['Telefoon'];
 		$Email = $row['Email'];
-		
-		$Betaalmethode = $row['Betaalmethode'];
 		
 		$Gebruikersnaam = $row['Gebruikersnaam'];
 		

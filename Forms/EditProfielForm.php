@@ -52,7 +52,7 @@
 				</tr>
 				<tr>
 					<td><label for="Herhaalwachtwoord">Herhaal Nieuw Wachtwoord:</label></td>
-					<td><input type="password" id="Herhaalwachtwoord" name="Herhaalwachtwoord" /></td><?php echo $RePassErr; ?>
+					<td><input type="password" id="Herhaalwachtwoord" name="herhaalWachtwoord" /></td><?php echo $RePassErr; ?>
 				</tr>
 				
 				
