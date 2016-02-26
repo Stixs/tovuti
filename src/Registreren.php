@@ -162,7 +162,9 @@ if(LoginCheck($pdo) AND $_SESSION['level'] == 4){
 				$sth = $pdo->prepare('INSERT INTO '.$tabel.' (PersoonsID, Leeftijd, GroepID) VALUES (:PersoonsID, :Leeftijd, :GroepID)');
 				$sth->execute($parameters3);
 			}
-			echo 'U heeft zich succesvol geregistreerd en kunt vanaf nu inloggen op de website';
+			echo 'U heeft succesvol geregistreerd';
+			header ('Refresh 3, URL=index.php?Page=10');
+			
 		}
 	}
 	else

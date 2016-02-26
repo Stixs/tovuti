@@ -132,8 +132,7 @@
 							$sth->execute();
 							
 							$row = $sth->fetch();
-							
-							var_dump($pdo);
+
 							
 							
 							$_SESSION['Achternaam'] = $row['Achternaam'];
@@ -161,7 +160,7 @@
 						if(isset($_POST['ja']))
 							{
 								$parameters = array (':PID'=>$_GET['PID']);
-								$sth = $sth->prepare('DELETE FROM inloggegevens WHERE PersoonsID = :PID');
+								$sth = $pdo->prepare('DELETE FROM inloggegevens WHERE PersoonsID = :PID');
 								$sth->execute($parameters);
 								if($_GET['ULVL'] == 1)
 								{
