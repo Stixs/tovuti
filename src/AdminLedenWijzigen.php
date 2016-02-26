@@ -210,7 +210,7 @@
 								$row1 = $sth1->fetch();
 								if(isset($row1['PersoonsID']))
 								{
-									echo '<tr>';
+									echo '<tr class="groepsleider">';
 									echo '<td>'.$row1['Achternaam'].'</td><td>'.$row1['Voornaam'].'</td><td>'.$row1['Adres'].'</td><td>'.$row1['Woonplaats'].'</td><td>'.$row1['Email'].'</td><td><a href="./index.php?Page=10&Action=Edit&PID='.$row1['PersoonsID'].'" class="button buttonsmall">Wijzigen</a></td><td><a href="./index.php?Page=10&Action=DEL&PID='.$row1['PersoonsID'].'&ULVL='.$row1['Level'].'" class="button buttonsmall">Verwijder</a></td>';
 									echo '</tr>';
 								}

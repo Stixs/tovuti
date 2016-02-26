@@ -24,7 +24,7 @@
 				
 				while($row = $sth->fetch())
 				{
-					echo '<tr>';
+					echo '<tr class="groepsleider">';
 					echo '<td>'.$row['Voornaam'].'</td><td>'.$row['Achternaam'].'</td><td>'.$row['Woonplaats'].'</td><td>'.$row['Email'].'</td><td>'.$row['Telefoon'].'</td>';
 					echo '</tr>';
 				}
