@@ -20,7 +20,7 @@
 			
 			while($row1 = $sth1->fetch())
 			{
-				echo '<tr>';
+				echo '<tr class="groepsleider">';
 				echo '<td>'.$row1['Voornaam'].'</td><td>'.$row1['Achternaam'].'</td><td>'.$row1['Woonplaats'].'</td><td>'.$row1['Email'].'</td>';
 				echo '</tr>';
 			}
